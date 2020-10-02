@@ -4,14 +4,14 @@ node{
    def tomcatStatus = ''
    
   stage('SCM Checkout'){
-     git 'https://github.com/umakantapati/petclinic.git'
+     git 'https://github.com/umakantapati/addressbook.git'
    }
   
    stage('Compile-Package-create-war-file'){
          bat "mvn package"
       }
    stage('Deploy to Tomcat'){
-     bat "copy target\\petclinic.war \"${tomcatWeb}"
+     bat "copy target\\addressbook.war \"${tomcatWeb}"
    }
       stage ('Start Tomcat Server') {
          sleep(time:5,unit:"SECONDS") 
